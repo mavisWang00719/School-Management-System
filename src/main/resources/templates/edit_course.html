@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>School Management System</title>
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand --> 
+  <a class="navbar-brand"  th:href="@{/index}">School Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/course}">Student - Course Management</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+   	<div class="topnav-right">
+    	<ul class="navbar-nav">
+      	<li class="nav-item">
+        	<form th:action="@{/logout}" method = "POST">
+        		<input type = "submit" value = "LOG OUT" />
+        	</form>
+      	</li>
+    	</ul>
+   	</div>
+  </div>
+  
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Edit Course Info</h1>
+				<div class = "card-body">
+					<form th:action = "@{/course/{id} (id = ${course.id})}" th:object = "${course}" method = "POST">
+						<div class = "form-group">
+							
+							<label> Course Time </label>
+							<input
+							type = "text"
+							name = "courseTime"
+							th:field = "*{courseTime}" required
+							class = "form-control"
+							placeholder = "Enter Course Time"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Course Teacher </label>
+							<input
+							type = "text"
+							name = "courseTeacher"
+							th:field = "*{courseTeacher}"
+							class = "form-control"
+							placeholder = "Enter Course Teacher"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Course Duration </label>
+							<input
+							type = "text"
+							name = "courseDuration"
+							th:field = "*{courseDuration}" required
+							class = "form-control"
+							placeholder = "Enter Course Duration"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Course Grade </label>
+							<input
+							type = "text"
+							name = "courseGrade"
+							th:field = "*{courseGrade}"
+							class = "form-control"
+							placeholder = "Enter Course Grade"
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type = "submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

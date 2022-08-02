@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Create Account</title>
+<link rel="stylesheet" 
+href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" 
+integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" 
+crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand --> 
+  <a class="navbar-brand"  th:href="@{/index}">School Management System</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#">School Management</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class = "col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center"> Create New Account </h1>
+				<div class = "card-body">
+					<form th:action = "@{/process_register}" th:object = "${user}" method = "post">
+						<div class = "form-group">
+							<label> Email </label>
+							<input
+							type = "email"
+							name = "email"
+							th:field = "*{email}" required
+							class = "form-control"
+							placeholder = "Enter Student Email"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Password </label>
+							<input
+							type = "password"
+							name = "password"
+							th:field = "*{password}" required
+							class = "form-control"
+							placeholder = "Enter Password"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> First Name </label>
+							<input
+							type = "text"
+							name = "firstName"
+							th:field = "*{firstName}" required
+							class = "form-control"
+							placeholder = "Enter first Name"
+							minlength = "2" maxlength = "20"
+							/>
+						</div>
+						
+						<div class = "form-group">
+							<label> Last Name </label>
+							<input
+							type = "text"
+							name = "lastName"
+							th:field = "*{lastName}" required
+							class = "form-control"
+							placeholder = "Enter Last Name"
+							minlength = "2" maxlength = "20"
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type = "submit" class = "btn btn-dark btn-sm mb-3">
+								CREATE ACCOUNT
+							</button>
+						</div>
+						
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
